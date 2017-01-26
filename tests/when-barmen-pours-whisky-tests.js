@@ -67,12 +67,14 @@ suite('when barmen pours whisky', function () {
             username().then(un => {
                 console.log(un);
 
-                if (un === "alex4Zero") {
+                if (un === "dpavlov") {
                     var iAskVolume = 500;
                     var whisky = 1;
 
                     expect(() => barmen.pour(whisky, iAskVolume)).to.throw(/There is no such glass/);
                     done();
+
+                    return;
                 }
 
                 done();
