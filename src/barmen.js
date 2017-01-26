@@ -1,6 +1,7 @@
 class Barmen {
     constructor() {
         this.totalRequests = 0;
+        this.age = 27;
     }
 
     pour(drink, volume) {
