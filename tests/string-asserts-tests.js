@@ -1,9 +1,6 @@
 var expect = require('chai').expect;
 
 suite('string asserts', function () {
-    setup(function () {
-    });
-
     test('do not check substring for not contains', function () {
         let phoneValidationError = enterPhoneNumber(true);
 
@@ -20,7 +17,4 @@ suite('string asserts', function () {
 
         return "Please enter phone number";
     };
-
-    teardown(function () {
-    })
 });
