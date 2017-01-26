@@ -29,7 +29,7 @@ suite('when barmen pours whisky', function () {
         test('I get and drink whisky', function (done) {
             fs.readFile('whisky.jpg', function (err, whisky) {
                 if (err) {
-                    throw err;
+                    done(err);
                 }
 
                 var iAskVolume = 50;
@@ -50,7 +50,7 @@ suite('when barmen pours whisky', function () {
         test('I get an error', function (done) {
             fs.readFile('whisky.jpg', function (err, whisky) {
                 if (err) {
-                    throw err;
+                    done(err);
                 }
 
                 var iAskVolume = -10;
