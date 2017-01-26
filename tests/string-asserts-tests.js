@@ -1,20 +1,21 @@
-import { expect } from 'chai'
-var enterPhoneNumber = function() {
-
-}
+var expect = require('chai').expect;
 
 suite('string asserts', function () {
     setup(function () {
     });
 
     test('do not check substring for not contains', function () {
-        enterPhoneNumber();
+        enterPhoneNumber(true);
 
         let errorMessage = "Please, enter first name\nPlease enter last name";
 
         expect(errorMessage).to.not.contain('Please enter phone number');
     });
 
-    teardown(function() {
+    var enterPhoneNumber = function (isValid) {
+
+    };
+
+    teardown(function () {
     })
 });

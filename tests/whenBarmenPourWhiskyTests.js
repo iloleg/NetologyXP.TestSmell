@@ -1,20 +1,25 @@
-import assert from 'assert'
-import { pour, free as freeBarmen } from '../src/barmen'
-import { drink, sober, goToBar, getMyCar, getTotallyDrunked, isDrunked } from '../src/me'
-import { download } from '../src/imageDownloader'
-import fs from 'fs'
-import { expect } from 'chai'
-import username from 'username'
-
+var assert = require('assert');
+var expect = require('chai').expect;
+var Barmen = require('../src/barmen');
+var Visitor = require('../src/visitor');
+var ImageDownloader = require('../src/image-downloader');
+var fs = require('fs');
+var username = require('username');
 
 suite('when barmen pour whisky', function () {
+    let barmen = new Barmen();
+    let me = new Visitor();
+    let imageDownloader = new ImageDownloader();
+
     setup(function (done) {
         this.timeout(20000);
-        sober();
-        download('http://www.rosa-obs.com/images/ccd/M31_karel_full.jpg', 'mycar.jpg', function() {
-            var car = getMyCar("mycar.jpg");
-            goToBar(car);
-            freeBarmen();
+        me.sober();
+
+        imageDownloader.download('http://www.rosa-obs.com/images/ccd/M31_karel_full.jpg', 'mycar.jpg', function () {
+            var car = me.getMyCar("mycar.jpg");
+            me.goToBar(car);
+            barmen.free();
+
             done();
         });
     });
@@ -28,12 +33,12 @@ suite('when barmen pour whisky', function () {
 
                 var iAskVolume = 50;
 
-                var volumeInGlass = pour(whisky, iAskVolume);
-                drink(volumeInGlass);
+                var volumeInGlass = barmen.pour(whisky, iAskVolume);
+                me.drink(volumeInGlass);
 
                 assert.equal(iAskVolume, volumeInGlass);
-                assert.equal(false, isDrunked());
-                assert.equal(50, getTotallyDrunked());
+                assert.equal(false, me.isDrunk());
+                assert.equal(50, me.getTotallyDrunk());
 
                 done();
             });
@@ -49,30 +54,32 @@ suite('when barmen pour whisky', function () {
 
                 var iAskVolume = -10;
 
-                expect(() => pour(whisky, iAskVolume)).to.throw(/Invalid volume of whisky/);
+                expect(() => barmen.pour(whisky, iAskVolume)).to.throw(/Invalid volume of whisky/);
                 done();
             });
         });
-
-
     });
 
-    suite('i ask 500 grams', function() {
-        test('Barmen said there is no such glass', function(done) {
+    suite('i ask 500 grams', function () {
+        test('Barmen said there is no such glass', function (done) {
 
             username().then(un => {
                 console.log(un);
-                if (un === "alex4Zero") {
-                }
-                var iAskVolume = 500;
-                var whisky = 1;
 
-                expect(() => pour(whisky, iAskVolume)).to.throw(/There is no such glass/);
+                if (un === "alex4Zero") {
+                    var iAskVolume = 500;
+                    var whisky = 1;
+
+                    expect(() => barmen.pour(whisky, iAskVolume)).to.throw(/There is no such glass/);
+                    done();
+                }
+
                 done();
             });
         })
     });
 
-    teardown(function() {
+    teardown(function () {
+
     })
 });

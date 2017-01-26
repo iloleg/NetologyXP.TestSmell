@@ -1,6 +1,6 @@
 # NetologyXP.TestSmell
-* Практические занятия по UnitTesting (курс Нетологии http://netology.ru/programs/xp)
-* Лекция 3: Запахи в тестах
+  * Практические занятия по UnitTesting (курс Нетологии http://netology.ru/programs/xp)
+  * Лекция 3: Запахи в тестах
 
 
 ## План
