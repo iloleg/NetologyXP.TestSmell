@@ -47,7 +47,7 @@ suite('when barmen pours whisky', function () {
     });
 
     suite('i ask -10 grams', function () {
-        test('I get an error', function (done) {
+        test('I get an answer that volume is invalid', function (done) {
             fs.readFile('whisky.jpg', function (err, whisky) {
                 if (err) {
                     done(err);
