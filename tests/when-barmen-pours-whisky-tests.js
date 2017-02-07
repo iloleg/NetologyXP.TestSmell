@@ -15,18 +15,18 @@ suite('when barmen pours whisky', function () {
         this.timeout(20000);
         me.sober();
 
-        imageDownloader.download('http://www.rosa-obs.com/images/ccd/M31_karel_full.jpg',
-            'mycar.jpg', function () {
-                var car = me.getMyCar("mycar.jpg");
+     //   imageDownloader.download('http://www.rosa-obs.com/images/ccd/M31_karel_full.jpg',
+        //    'mycar.jpg', function () {
+               var car = me.getMyCar("mycar.jpg");
                 me.goToBar(car);
                 barmen.free();
 
                 done();
-            });
+      //  });
     });
 
     suite('i ask 50 grams', function () {
-        test('I get and drink whisky', function (done) {
+        test('I get and drink 50 grams of  whisky', function (done) {
             fs.readFile('whisky.jpg', function (err, whisky) {
                 if (err) {
                     done(err);
