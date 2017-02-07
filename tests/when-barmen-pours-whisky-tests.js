@@ -12,7 +12,7 @@ suite('when barmen pours whisky', function () {
     let imageDownloader = new ImageDownloader();
 
     setup(function (done) {
-        this.timeout(20000);
+        this.timeout(200);
         me.sober();
 
           imageDownloader.download('http://www.rosa-obs.com/images/ccd/M31_karel_full.jpg',
