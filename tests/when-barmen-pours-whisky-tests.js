@@ -64,8 +64,8 @@ suite('when barmen pours whisky', function () {
     suite('i ask 500 grams', function () {
         test('Barmen said there is no such glass', function (done) {
 
-            username().then(un => {
-                console.log(un);
+         //   username().then(un => {
+         //       console.log(un);
 
                 if (un === "dpavlov") {
                     var iAskVolume = 500;
@@ -78,7 +78,7 @@ suite('when barmen pours whisky', function () {
                 }
 
                 done();
-            });
+          //  });
         })
     });
 
