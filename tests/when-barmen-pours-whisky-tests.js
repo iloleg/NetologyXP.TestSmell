@@ -1,10 +1,10 @@
 var assert = require('assert');
-var expect = require('chai').expect;
+//var expect = require('chai').expect;
 var Barmen = require('../src/barmen');
 var Visitor = require('../src/visitor');
 var ImageDownloader = require('../src/image-downloader');
 var fs = require('fs');
-var username = require('username');
+//var username = require('username');
 
 suite('when barmen pours whisky', function () {
     let barmen = new Barmen();
@@ -15,14 +15,15 @@ suite('when barmen pours whisky', function () {
         this.timeout(20000);
         me.sober();
 
-     //   imageDownloader.download('http://www.rosa-obs.com/images/ccd/M31_karel_full.jpg',
-        //    'mycar.jpg', function () {
-               var car = me.getMyCar("mycar.jpg");
-                me.goToBar(car);
-                barmen.free();
+          imageDownloader.download('http://www.rosa-obs.com/images/ccd/M31_karel_full.jpg',
+          'mycar.jpg', function () {
+              var car = me.getMyCar("mycar.jpg");
+              me.goToBar(car);
+              barmen.free();
 
-                done();
-      //  });
+              done();
+
+       });
     });
 
     suite('i ask 50 grams', function () {
